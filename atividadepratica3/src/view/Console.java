@@ -23,7 +23,4 @@ public class Console {
         scan.nextLine();
         return value;
     }
-
-
-
 }
