@@ -18,7 +18,6 @@ public class Console {
 
     public static float lerFloat(){
         float value = scan.nextFloat();
-        // limpeza de buffer
         scan.nextLine();
         return value;
     }
