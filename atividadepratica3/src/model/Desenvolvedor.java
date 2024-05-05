@@ -10,7 +10,7 @@ public class Desenvolvedor extends Funcionario implements ITrabalhavel {
 
     @Override
     public double calcularSalario() {
-        return 3000; // Valor base exemplo
+        return 5000;
     }
 
     @Override
@@ -21,5 +21,10 @@ public class Desenvolvedor extends Funcionario implements ITrabalhavel {
     @Override
     public void relatarProgresso() {
         System.out.println("Progresso do desenvolvimento reportado.");
+    }
+
+    @Override
+    public String toString() {
+        return "Desenvolvedor: " + getNome() + " (Tecnologia: " + tecnologia + ")";
     }
 }

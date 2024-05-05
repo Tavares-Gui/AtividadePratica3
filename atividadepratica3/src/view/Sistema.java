@@ -1,8 +1,5 @@
 package view;
 
-import java.util.List;
-import java.util.Scanner;
-
 import controller.GerenciadorFuncionarios;
 import model.Desenvolvedor;
 import model.Gerente;
@@ -11,19 +8,18 @@ import model.Funcionario;
 
 public class Sistema {
     private static GerenciadorFuncionarios gerenciadorFuncionarios = new GerenciadorFuncionarios();
-    private static Scanner scanner = new Scanner(System.in);
 
-    private static void menu() {
-
-        System.out.println("===== Gerenciamento de Funcionários =====\n" +
+    public static void menu() {
+        System.out.println("\n===== Gerenciamento de Funcionários =====\n" +
                            "Selecione a ação que deseja realizar:\n" +
                            "< 1 > Cadastrar novo funcionário\n" +
                            "< 2 > Listar todos os funcionários\n" +
                            "< 3 > Buscar funcionário por matrícula\n" +
-                           "< 4 > Remover funcionário\n");
+                           "< 4 > Remover funcionário\n" +
+                           "< 0 > Sair\n");
     }
 
-    private static void opcoesMenu(int op) {
+    public static void opcoesMenu(int op) {
         switch (op) {
             case 1:
                 adicionarFuncionario();
@@ -42,7 +38,7 @@ public class Sistema {
                 break;
 
             case 0:
-                System.out.println("Obrigado por utilizar o nosso sistema! Até a próxima!");
+                System.out.println("\nObrigado por utilizar o nosso sistema! Até a próxima!\n");
                 System.exit(0);
 
             default:
@@ -51,78 +47,71 @@ public class Sistema {
     }
 
     private static void adicionarFuncionario() {
-        System.out.println("===== Adicionar Funcionário =====\n" +
+        System.out.println("\n===== Adicionar Funcionário =====\n" +
                            "Selecione o tipo de funcionário:\n" +
                            "< 1 > Gerente\n" +
                            "< 2 > Desenvolvedor\n" +
                            "< 3 > Estagiário\n");
-        int tipo = scanner.nextInt();
-        scanner.nextLine();
-
+    
+        int tipo = Console.lerInt();
+    
         System.out.println("Digite o nome do funcionário: ");
-        String nome = scanner.nextLine();
+        String nome = Console.lerStr();
+    
         System.out.println("Digite a matrícula do funcionário: ");
-        String matricula = scanner.nextLine();
-        scanner.nextLine();
-
+        String matricula = Console.lerStr();
+    
         switch (tipo) {
             case 1:
                 System.out.println("Digite o bônus anual do gerente: ");
-                double bonusAnual = scanner.nextDouble();
+                double bonusAnual = Console.lerFloat();
                 gerenciadorFuncionarios.adicionarFuncionario(new Gerente(nome, matricula, bonusAnual));
                 break;
             case 2:
                 System.out.println("Digite as tecnologias dominadas pelo desenvolvedor: ");
-                String tecnologias = scanner.nextLine();
+                String tecnologias = Console.lerStr();
                 gerenciadorFuncionarios.adicionarFuncionario(new Desenvolvedor(nome, matricula, tecnologias));
                 break;
             case 3:
                 System.out.println("Digite as horas de trabalho do estagiário: ");
-                int horasTrabalhadas = scanner.nextInt();
+                int horasTrabalhadas = Console.lerInt();
                 gerenciadorFuncionarios.adicionarFuncionario(new Estagiario(nome, matricula, horasTrabalhadas));
                 break;
             default:
-                System.out.println("Tipo de funcionário inválido.");
+                System.out.println("Tipo de funcionário inválido.\n\n");
+                break;
         }
     }
+    
 
     private static void listarFuncionarios() {
-        System.out.println("===== Lista de Funcionários =====\n");
+        System.out.println("\n===== Lista de Funcionários =====\n");
         gerenciadorFuncionarios.listarFuncionarios();
     }
 
     private static void buscarFuncionario() {
-        System.out.println("===== Buscar Funcionário por Matrícula =====\n" +
-                           "Digite a matrícula do funcionário que deseja buscar: ");
-        String matricula = scanner.nextLine();
+        System.out.println("\n===== Buscar Funcionário por Matrícula =====\n" +
+                "Digite a matrícula do funcionário que deseja buscar: ");
+        String matricula = Console.lerStr();
 
         Funcionario funcionario = gerenciadorFuncionarios.buscarFuncionarioPorMatricula(matricula);
 
         if (funcionario != null) {
-            System.out.println("Funcionário: " + funcionario);
+            System.out.println(funcionario);
         } else {
-            System.out.println("Funcionário não encontrado.");
+            System.out.println("Funcionário não encontrado.\n\n");
         }
     }
 
     private static void removerFuncionario() {
-        System.out.println("===== Remover Funcionário =====" +
-                           "Digite a matrícula do funcionário que deseja remover: ");
-        String matricula = scanner.nextLine();
+        System.out.println("\n===== Remover Funcionário =====\n" +
+                "Digite a matrícula do funcionário que deseja remover: ");
+        String matricula = Console.lerStr();
 
         if (gerenciadorFuncionarios.removerFuncionario(matricula)) {
-            System.out.println("Funcionário removido com sucesso.");
+            System.out.println("Funcionário removido com sucesso.\n\n");
         } else {
-            System.out.println("Funcionário não encontrado.");
-        }
-    }
-
-    public static void main(String[] args) {
-        while (true) {
-            menu();
-            int opcao = scanner.nextInt();
-            scanner.nextLine();
-            opcoesMenu(opcao);
+            System.out.println("Funcionário não encontrado.\n\n");
         }
     }
 }

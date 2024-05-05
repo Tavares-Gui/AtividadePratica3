@@ -2,6 +2,7 @@ package model;
 
 import java.util.List;
 
+
 public class Gerente extends Funcionario implements ITrabalhavel {
     private double bonusAnual;
     private List<Funcionario> equipe;
@@ -13,7 +14,7 @@ public class Gerente extends Funcionario implements ITrabalhavel {
 
     @Override
     public double calcularSalario() {
-        return 5000 + bonusAnual; // Valor base exemplo + bônus
+        return 8000 + bonusAnual; 
     }
 
     @Override
@@ -28,5 +29,10 @@ public class Gerente extends Funcionario implements ITrabalhavel {
 
     public void setEquipe(List<Funcionario> equipe) {
         this.equipe = equipe;
+    }
+
+    @Override
+    public String toString() {
+        return "Gerente: " + getNome();
     }
 }

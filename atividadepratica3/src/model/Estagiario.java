@@ -11,7 +11,7 @@ public class Estagiario extends Funcionario implements ITrabalhavel {
 
     @Override
     public double calcularSalario() {
-        return horasTrabalho * 20; // Valor exemplo por hora
+        return horasTrabalho * 10; 
     }
 
     @Override
@@ -22,5 +22,10 @@ public class Estagiario extends Funcionario implements ITrabalhavel {
     @Override
     public void relatarProgresso() {
         System.out.println("Progresso de estagiário reportado.");
+    }
+
+    @Override
+    public String toString() {
+        return "Estagiário: " + getNome();
     }
 }

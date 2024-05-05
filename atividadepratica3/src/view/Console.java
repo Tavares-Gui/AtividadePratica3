@@ -7,7 +7,6 @@ public class Console {
 
     public static int lerInt(){
         int value = scan.nextInt();
-        // limpeza de buffer
         scan.nextLine();
         return value;
     }

@@ -11,19 +11,25 @@ public class GerenciadorFuncionarios {
     }
 
     public boolean removerFuncionario(String matricula) {
-        return funcionarios.removeIf(f -> f.getMatricula().equals(matricula));
-    }
+        for (Funcionario func : funcionarios) {
+            if (func.getMatricula().equals(matricula)) {
+                funcionarios.remove(func);
+                return true;
+            }
+        }
+        return false;
+    }    
 
     public void listarFuncionarios() {
-        for (Funcionario f : funcionarios) {
-            System.out.println(f.getNome() + " - " + f.getMatricula());
+        for (Funcionario funcs : funcionarios) {
+            System.out.println(funcs.getNome() + " - " + funcs.getMatricula());
         }
     }
 
     public Funcionario buscarFuncionarioPorMatricula(String matricula) {
-        for (Funcionario f : funcionarios) {
-            if (f.getMatricula().equals(matricula)) {
-                return f;
+        for (Funcionario funcs : funcionarios) {
+            if (funcs.getMatricula().equals(matricula)) {
+                return funcs;
             }
         }
         return null;
