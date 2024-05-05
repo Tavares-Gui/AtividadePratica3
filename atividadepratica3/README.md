@@ -1,18 +1,10 @@
-## Getting Started
+## Atividade Avaliativa 3
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+Ferramenta utilizada para a realização: VS Code
 
-## Folder Structure
+## Avisos
 
-The workspace contains two folders by default, where:
-
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
-
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
-
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
-
-## Dependency Management
-
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+Para a realização completa desta atividade, tive que utilizar ajuda do ChatGPT para fazer a parte das equipes do gerente.
+A classe Principal é o que da início ao código.
+A classe Sistema é a visualização para o usuário (Menu).
+As funcões que sao realizadas no menu, foram colocadas na classe MenuActions, para que o código seja entendido de uma maneira mais fácil.
