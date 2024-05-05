@@ -9,6 +9,14 @@ public class Estagiario extends Funcionario implements ITrabalhavel {
         this.horasTrabalho = horasTrabalho;
     }
 
+    public static void setSupervisor(Funcionario supervisor) {
+        supervisor = supervisor;
+    }
+    
+    public Funcionario getSupervisor() {
+        return supervisor;
+    }
+
     @Override
     public double calcularSalario() {
         return horasTrabalho * 10; 
@@ -26,6 +34,14 @@ public class Estagiario extends Funcionario implements ITrabalhavel {
 
     @Override
     public String toString() {
-        return "Estagiário: " + getNome();
+        return "Estagiário: " + getNome() + " (Supervisor: " + supervisor + ")";
+    }
+
+    public int getHorasTrabalho() {
+        return horasTrabalho;
+    }
+
+    public void setHorasTrabalho(int horasTrabalho) {
+        this.horasTrabalho = horasTrabalho;
     }
 }

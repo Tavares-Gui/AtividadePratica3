@@ -27,4 +27,12 @@ public class Desenvolvedor extends Funcionario implements ITrabalhavel {
     public String toString() {
         return "Desenvolvedor: " + getNome() + " (Tecnologia: " + tecnologia + ")";
     }
+
+    public String getTecnologia() {
+        return tecnologia;
+    }
+
+    public void setTecnologia(String tecnologia) {
+        this.tecnologia = tecnologia;
+    }
 }
